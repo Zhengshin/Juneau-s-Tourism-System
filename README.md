@@ -248,13 +248,16 @@ The dataset supports variables related to:
 ## Example Outputs
 
 ### Optimization analysis
-![Optimization analysis](./figures/ga_optimization.png)
-
+- Feedback Mechanism.png
+- Flowchart.png
+- Multidimensional optimization analysis.png
+  
 ### Sensitivity analysis
-![Sensitivity analysis](./figures/sensitivity_analysis.png)
+- Sensitivity analysis.png
 
 ### City diagnosis
-![City diagnosis](./figures/city_diagnosis_mumbai.png)
+- Example_1.png
+- Example_2.png
 
 ## Notes
 
