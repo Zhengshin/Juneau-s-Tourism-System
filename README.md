@@ -1,8 +1,8 @@
 # Juneau Sustainable Tourism System
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![MATLAB](https://img.shields.io/badge/MATLAB-R2021a%2B-blue)](https://www.mathworks.com/products/matlab.html)
+(https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![MATLAB](https://img.shields.io/badge/MATLAB-R2021a%2B-blue)](https://www.mathworks.com/products/matlab.html)
 
-This repository contains the MATLAB implementation of the **MCM 2025**:
+This repository contains the MATLAB implementation of the **MCM/ICM 2025 paper**:
 
 **"Tourists or Icebergs? Dynamic Optimization of Juneau's Tourism System under Feedback Constraints"**
 
@@ -81,7 +81,7 @@ Cities are classified into dominant, composite, or balanced types, and the optim
 - `Countermeasures_Analysis.m` - Policy recommendation and intervention analysis
 - `Visualization.m` - Visualization scripts for plots, radar charts, and parameter-space analysis
 - `README.md` - Project documentation
-- `Research report.pdf` - The research paper produced from this project
+
 ## Methodology
 
 The project consists of four methodological layers.
@@ -95,6 +95,8 @@ The tourism system is modeled through differential or dynamic equations involvin
 - resident satisfaction,
 - infrastructure stress,
 - and glacier retreat.
+
+A feedback mechanism is introduced to capture the interaction between tourism growth, tax regulation, environmental change, and social response.
 
 ### 2. Objective Optimization
 
@@ -138,6 +140,26 @@ Different city types are assigned different policy adjustments, including:
 - tourist flow control,
 - and investment feedback mechanisms.
 
+## Core Code Snippet
+
+```matlab
+for i = 1:popSize
+    N = population(i,1);
+    tax = population(i,2);
+    R = tax * N * 365;
+
+    E = params.sigma2*N + params.kappa*N - params.beta1*alpha(1)*R;
+    I = params.sigma3*N - params.beta2*alpha(2)*R;
+    S = (params.epsilon*params.lambda - params.eta)*N + params.beta3*alpha(3)*R;
+
+    if E > params.E_max || I > params.I_max || S < params.S_min
+        fitness(i) = -1e9;
+    else
+        fitness(i) = params.sigma1*N*365 - c1*E - c2*I + c3*S;
+    end
+end
+```
+
 ## How to Run
 
 ### Requirements
@@ -152,15 +174,44 @@ git clone https://github.com/Zhengshin/Juneau-s-Tourism-System.git
 cd Juneau-s-Tourism-System
 ```
 
-### Run the scripts
+### Recommended entry point
 
-Open MATLAB and run the scripts depending on the purpose:
+Open MATLAB, set the repository as the current working directory, and run:
 
-- `Example_Optimization.m` - main demonstration workflow
-- `Optimization.m` - core optimization model
-- `City_Classification.m` - tourism type diagnosis
-- `Countermeasures_Analysis.m` - adaptive policy / countermeasure analysis
-- `Visualization.m` - figure generation and visualization
+```matlab
+run('Example_Optimization.m')
+```
+
+You may also run the following scripts separately:
+
+- `Optimization.m`
+- `City_Classification.m`
+- `Countermeasures_Analysis.m`
+- `Visualization.m`
+
+## Data Source
+
+The project is based on a small structured dataset compiled from authoritative public/open U.S. data sources and literature-backed indicators for sustainable tourism modeling in Juneau.
+
+The dataset supports variables related to:
+
+- tourist volume
+- environmental pressure
+- infrastructure stress
+- glacier-related effects
+- resident satisfaction
+- city-level E/C/I indicators
+
+## Reproducibility Notes
+
+- Main language: MATLAB
+- Recommended entry point: `Example_Optimization.m`
+- Core optimization script: `Optimization.m`
+- Diagnostic script: `City_Classification.m`
+- Visualization script: `Visualization.m`
+- No external pretrained models or proprietary APIs used
+- No additional toolbox required
+- Randomness mainly comes from the genetic algorithm; adding `rng(seed)` can make runs fully reproducible
 
 ## Key Results
 
@@ -194,6 +245,21 @@ Open MATLAB and run the scripts depending on the purpose:
 | Athens (Greece) | I-C composite | Infrastructure + Culture |
 | Singapore | Balanced | All dimensions moderate |
 
+## Example Outputs
+
+### Optimization analysis
+![Optimization analysis](./figures/ga_optimization.png)
+
+### Sensitivity analysis
+![Sensitivity analysis](./figures/sensitivity_analysis.png)
+
+### City diagnosis
+![City diagnosis](./figures/city_diagnosis_mumbai.png)
+
+## Notes
+
+The project is organized into separate scripts for optimization, diagnosis, countermeasure analysis, and visualization. Basic validation includes feasibility checks on optimization constraints and sanity checks on representative city classifications.
+
 ## Strengths
 
 - Integrates **optimization, feedback modeling, diagnosis, and visualization** in one framework
@@ -208,3 +274,17 @@ Open MATLAB and run the scripts depending on the purpose:
 - Some cross-city inputs are stylized or literature-derived rather than collected through one uniform pipeline
 - Predictions may be affected by uncertainty and parameter sensitivity
 - The current implementation focuses on MATLAB-based research prototyping rather than large-scale ML engineering
+
+## My Contribution
+
+I contributed to the **model establishment** and **partial MATLAB code implementation** for this project, including support for the optimization logic and the project workflow.
+
+## Academic Context
+
+This repository corresponds to the **MCM/ICM 2025** submission and reflects the major components of the paper:
+
+- sustainable tourism modeling
+- feedback-constrained dynamic optimization
+- sensitivity analysis
+- entropy-weighted city diagnosis
+- adaptive countermeasure design
