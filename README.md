@@ -1,37 +1,45 @@
-# Juneau-s-Tourism-System
-# Sustainable Tourism Dynamic Optimization and City Diagnosis
+# Juneau Sustainable Tourism System
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![MATLAB](https://img.shields.io/badge/MATLAB-R2021a%2B-blue)](https://www.mathworks.com/products/matlab.html)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![MATLAB](https://img.shields.io/badge/MATLAB-R2021a%2B-blue)](https://www.mathworks.com/products/matlab.html)
 
-This repository contains the complete MATLAB implementation for the **MCM/ICM 2025 paper**:
+This repository contains the MATLAB implementation of the **MCM 2025**:
 
 **"Tourists or Icebergs? Dynamic Optimization of Juneau's Tourism System under Feedback Constraints"**
 
-The project develops a **multi-objective sustainable tourism framework** based on **system dynamics**, **feedback mechanisms**, **genetic algorithm optimization**, and **entropy-weighted city diagnosis**.  
-It is designed to balance **economic return**, **environmental stress**, **infrastructure carrying capacity**, and **resident satisfaction** under overtourism pressure.
+The project develops an **optimization-centered scientific machine learning / AI-for-decision-making framework** for sustainable tourism. It combines **system dynamics**, **feedback-constrained modeling**, **genetic algorithm optimization**, **entropy-weighted city diagnosis**, **sensitivity analysis**, and **data visualization** to support sustainable tourism policy design under overtourism pressure.
 
----
+This project is especially relevant to AI applications in **optimization**, **statistical modeling**, **scientific machine learning**, **interpretable decision systems**, and **data-driven public policy analysis**.
 
-## Abstract
+## Project Overview
 
-This project studies the sustainable tourism problem in **Juneau, Alaska**, where rapid tourism growth creates feedback effects on glacier retreat, environmental burden, infrastructure overload, and local satisfaction.
+Juneau, Alaska faces a sustainable tourism challenge: tourism growth increases economic benefit, but it also intensifies environmental stress, glacier retreat, infrastructure overload, and resident dissatisfaction.
 
-To address this, we construct:
+To address this, the project constructs:
 
 - a **dynamic optimization model** for tourist number and tax policy,
 - a **feedback-constrained objective function** for comprehensive tourism benefit,
-- an **entropy-weighted classification system** for cross-city diagnosis,
-- and an **adaptive policy application framework** for different city types.
+- an **entropy-weighted E/C/I diagnosis system** for city classification,
+- and an **adaptive policy application framework** for other overtourism-affected cities.
 
-The framework is then extended to representative cities such as **Mumbai**, **Venice**, **Reykjavik**, **Kyoto**, **Athens**, and **Singapore**.
+The framework is then extended to representative cities including **Mumbai**, **Venice**, **Reykjavik**, **Kyoto**, **Athens**, and **Singapore**.
 
----
+## Why This Project Is Relevant to AI
+
+Although this is not a deep-learning benchmark, it is strongly connected to core AI themes:
+
+- **Optimization**: multi-objective policy optimization under constraints
+- **Scientific ML**: mathematical modeling of real-world dynamic systems
+- **Interpretable AI**: explicit objective functions, constraints, and rule-based diagnosis
+- **Data analysis and visualization**: structured indicators, entropy weighting, sensitivity analysis, and visual outputs
+- **Responsible AI / decision support**: balancing economy, environment, infrastructure, and social welfare in a transparent way
+
+This project demonstrates how AI-related methods can support real-world decision-making beyond standard prediction tasks.
 
 ## Main Contributions
 
 ### 1. Juneau Sustainable Tourism Optimization
-A system-dynamics model is established to characterize the interaction among:
+
+A system-dynamics model is built to characterize the interaction among:
 
 - tourist growth,
 - glacier retreat,
@@ -42,6 +50,7 @@ A system-dynamics model is established to characterize the interaction among:
 A multi-objective optimization framework is then used to maximize comprehensive tourism benefit under environmental and social constraints.
 
 ### 2. Feedback-Constrained Decision Mechanism
+
 The model explicitly incorporates a closed-loop feedback structure:
 
 - more tourists increase economic returns,
@@ -51,39 +60,35 @@ The model explicitly incorporates a closed-loop feedback structure:
 This captures the dynamic nature of sustainable tourism management.
 
 ### 3. Sensitivity Analysis
-A perturbation-based sensitivity analysis is conducted to identify the most influential model parameters and evaluate the robustness of the optimization results.
+
+A perturbation-based sensitivity analysis is conducted to identify the most influential parameters and evaluate the robustness of the optimization results.
 
 ### 4. Cross-City Diagnosis and Application
+
 An entropy-weighted diagnosis framework is constructed using three dimensions:
 
-- **E** — Ecological sensitivity
-- **I** — Infrastructure carrying capacity
-- **C** — Cultural preservation
+- **E** - Ecological sensitivity
+- **I** - Infrastructure carrying capacity
+- **C** - Cultural preservation
 
 Cities are classified into dominant, composite, or balanced types, and the optimization framework is adapted accordingly.
 
----
-
 ## Repository Structure
 
-```text
-.
-├── City Classification          # Entropy-weighted city diagnosis system
-├── Countermeasures Analysis     # Policy recommendations and intervention strategies
-├── Example Optimization         # Example optimization workflows and outputs
-├── Optimization                 # Core Juneau / city optimization models
-├── Visualization                # Plots, radar charts, 3D surfaces, and figure scripts
-├── LICENSE                      # MIT license
-└── README.md                    # Project documentation
-```
-
----
+- `Optimization.m` - Core Juneau / city optimization model
+- `Example_Optimization.m` - Example optimization workflow and demonstration script
+- `City_Classification.m` - Entropy-weighted E/I/C city diagnosis system
+- `Countermeasures_Analysis.m` - Policy recommendation and intervention analysis
+- `Visualization.m` - Visualization scripts for plots, radar charts, and parameter-space analysis
+- `README.md` - Project documentation
+- `LICENSE` - MIT License
 
 ## Methodology
 
-The project consists of four methodological layers:
+The project consists of four methodological layers.
 
 ### 1. Dynamic System Modeling
+
 The tourism system is modeled through differential or dynamic equations involving:
 
 - tourist number,
@@ -93,6 +98,7 @@ The tourism system is modeled through differential or dynamic equations involvin
 - and glacier retreat.
 
 ### 2. Objective Optimization
+
 The model maximizes a comprehensive tourism benefit function under constraints such as:
 
 - environmental upper bounds,
@@ -100,7 +106,21 @@ The model maximizes a comprehensive tourism benefit function under constraints s
 - minimum resident satisfaction,
 - and tax-regulated visitor flow.
 
+A plain-text version of the objective is:
+
+`L(N, tau) = -[sigma1*N*365 - c1*E(N,tau) - c2*I(N,tau) + c3*S(N,tau)] + lambda*Pi(N,tau)`
+
+where:
+
+- `N` is tourist volume
+- `tau` is tax rate
+- `E` is environmental pressure
+- `I` is infrastructure stress
+- `S` is resident/social benefit
+- `Pi(N,tau)` is a penalty for infeasible solutions
+
 ### 3. Entropy-Weighted Classification
+
 A multi-indicator diagnosis model is used to score each city along E/I/C dimensions and determine whether the city is:
 
 - E-dominant
@@ -110,6 +130,7 @@ A multi-indicator diagnosis model is used to score each city along E/I/C dimensi
 - Balanced
 
 ### 4. Policy Adaptation
+
 Different city types are assigned different policy adjustments, including:
 
 - environmental investment reinforcement,
@@ -117,8 +138,6 @@ Different city types are assigned different policy adjustments, including:
 - cultural-protection weighting,
 - tourist flow control,
 - and investment feedback mechanisms.
-
----
 
 ## How to Run
 
@@ -130,39 +149,19 @@ Different city types are assigned different policy adjustments, including:
 ### Clone the repository
 
 ```bash
-git clone https://github.com/Zhengshin/sustainable-tourism-juneau.git
-cd sustainable-tourism-juneau
+git clone https://github.com/Zhengshin/Juneau-s-Tourism-System.git
+cd Juneau-s-Tourism-System
 ```
 
-### Run by module
+### Run the scripts
 
-Open MATLAB and run scripts inside the corresponding folders.
+Open MATLAB and run the scripts depending on the purpose:
 
-#### Optimization
-
-```text
-Optimization/
-```
-
-#### City classification
-
-```text
-City Classification/
-```
-
-#### Example workflows
-
-```text
-Example Optimization/
-```
-
-#### Visualization
-
-```text
-Visualization/
-```
-
----
+- `Example_Optimization.m` - main demonstration workflow
+- `Optimization.m` - core optimization model
+- `City_Classification.m` - tourism type diagnosis
+- `Countermeasures_Analysis.m` - adaptive policy / countermeasure analysis
+- `Visualization.m` - figure generation and visualization
 
 ## Key Results
 
@@ -196,8 +195,6 @@ Visualization/
 | Athens (Greece) | I-C composite | Infrastructure + Culture |
 | Singapore | Balanced | All dimensions moderate |
 
----
-
 ## Visualization Output
 
 The project generates multiple visualization outputs, including:
@@ -209,17 +206,37 @@ The project generates multiple visualization outputs, including:
 - sensitivity analysis figures
 - tourist flow control illustrations
 
-These visual outputs support both model interpretation and policy communication.
+![Insert Figure Here](./figures/your_figure_1.png)
 
----
+![Insert Figure Here](./figures/your_figure_2.png)
+
+![Insert Figure Here](./figures/your_figure_3.png)
+
+## Strengths
+
+- Integrates **optimization, feedback modeling, diagnosis, and visualization** in one framework
+- Addresses a **real-world sustainability problem** with interpretable mathematical structure
+- Provides **adaptability across different city types**
+- Supports **data-driven and explainable policy recommendations**
+- Demonstrates practical relevance to **scientific machine learning and AI-based decision support**
+
+## Limitations
+
+- The model is complex due to multiple variables and objectives
+- Some cross-city inputs are stylized or literature-derived rather than collected through one uniform pipeline
+- Predictions may be affected by uncertainty and parameter sensitivity
+- The current implementation focuses on MATLAB-based research prototyping rather than large-scale ML engineering
+
+## My Contribution
+
+I contributed to the **model establishment** and **partial MATLAB code implementation** for this project. My work focused on translating the modeling logic into executable code and supporting the optimization / diagnostic workflow.
 
 ## Academic Context
 
 This repository corresponds to the **MCM/ICM 2025** submission and reflects the major components of the paper:
 
-- sustainable tourism modeling,
-- feedback-constrained dynamic optimization,
-- sensitivity analysis,
-- entropy-weighted city diagnosis,
-- adaptive countermeasure design.
----
+- sustainable tourism modeling
+- feedback-constrained dynamic optimization
+- sensitivity analysis
+- entropy-weighted city diagnosis
+- adaptive countermeasure design
