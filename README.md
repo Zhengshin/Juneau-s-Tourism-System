@@ -195,23 +195,6 @@ Open MATLAB and run the scripts depending on the purpose:
 | Athens (Greece) | I-C composite | Infrastructure + Culture |
 | Singapore | Balanced | All dimensions moderate |
 
-## Visualization Output
-
-The project generates multiple visualization outputs, including:
-
-- 3D parameter-space analysis
-- tax-rate optimization curves
-- tourist-number optimization curves
-- radar charts for city diagnosis
-- sensitivity analysis figures
-- tourist flow control illustrations
-
-![Insert Figure Here](./figures/your_figure_1.png)
-
-![Insert Figure Here](./figures/your_figure_2.png)
-
-![Insert Figure Here](./figures/your_figure_3.png)
-
 ## Strengths
 
 - Integrates **optimization, feedback modeling, diagnosis, and visualization** in one framework
@@ -226,17 +209,3 @@ The project generates multiple visualization outputs, including:
 - Some cross-city inputs are stylized or literature-derived rather than collected through one uniform pipeline
 - Predictions may be affected by uncertainty and parameter sensitivity
 - The current implementation focuses on MATLAB-based research prototyping rather than large-scale ML engineering
-
-## My Contribution
-
-I contributed to the **model establishment** and **partial MATLAB code implementation** for this project. My work focused on translating the modeling logic into executable code and supporting the optimization / diagnostic workflow.
-
-## Academic Context
-
-This repository corresponds to the **MCM/ICM 2025** submission and reflects the major components of the paper:
-
-- sustainable tourism modeling
-- feedback-constrained dynamic optimization
-- sensitivity analysis
-- entropy-weighted city diagnosis
-- adaptive countermeasure design
