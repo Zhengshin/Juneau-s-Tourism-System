@@ -140,26 +140,6 @@ Different city types are assigned different policy adjustments, including:
 - tourist flow control,
 - and investment feedback mechanisms.
 
-## Core Code Snippet
-
-```matlab
-for i = 1:popSize
-    N = population(i,1);
-    tax = population(i,2);
-    R = tax * N * 365;
-
-    E = params.sigma2*N + params.kappa*N - params.beta1*alpha(1)*R;
-    I = params.sigma3*N - params.beta2*alpha(2)*R;
-    S = (params.epsilon*params.lambda - params.eta)*N + params.beta3*alpha(3)*R;
-
-    if E > params.E_max || I > params.I_max || S < params.S_min
-        fitness(i) = -1e9;
-    else
-        fitness(i) = params.sigma1*N*365 - c1*E - c2*I + c3*S;
-    end
-end
-```
-
 ## How to Run
 
 ### Requirements
@@ -173,22 +153,6 @@ end
 git clone https://github.com/Zhengshin/Juneau-s-Tourism-System.git
 cd Juneau-s-Tourism-System
 ```
-
-### Recommended entry point
-
-Open MATLAB, set the repository as the current working directory, and run:
-
-```matlab
-run('Example_Optimization.m')
-```
-
-You may also run the following scripts separately:
-
-- `Optimization.m`
-- `City_Classification.m`
-- `Countermeasures_Analysis.m`
-- `Visualization.m`
-
 ## Data Source
 
 The project is based on a small structured dataset compiled from authoritative public/open U.S. data sources and literature-backed indicators for sustainable tourism modeling in Juneau.
@@ -209,10 +173,12 @@ The dataset supports variables related to:
 - Core optimization script: `Optimization.m`
 - Diagnostic script: `City_Classification.m`
 - Visualization script: `Visualization.m`
-- No external pretrained models or proprietary APIs used
-- No additional toolbox required
-- Randomness mainly comes from the genetic algorithm; adding `rng(seed)` can make runs fully reproducible
-
+- Feedback Mechanism.png
+- Flowchart.png
+- Multidimensional optimization analysis.png
+- Sensitivity analysis.png
+- Example_1.png
+- Example_2.png
 ## Key Results
 
 ### Juneau Optimal Policy
@@ -270,13 +236,6 @@ The project is organized into separate scripts for optimization, diagnosis, coun
 - Provides **adaptability across different city types**
 - Supports **data-driven and explainable policy recommendations**
 - Demonstrates practical relevance to **scientific machine learning and AI-based decision support**
-
-## Limitations
-
-- The model is complex due to multiple variables and objectives
-- Some cross-city inputs are stylized or literature-derived rather than collected through one uniform pipeline
-- Predictions may be affected by uncertainty and parameter sensitivity
-- The current implementation focuses on MATLAB-based research prototyping rather than large-scale ML engineering
 
 ## My Contribution
 
