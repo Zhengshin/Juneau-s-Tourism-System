@@ -81,8 +81,7 @@ Cities are classified into dominant, composite, or balanced types, and the optim
 - `Countermeasures_Analysis.m` - Policy recommendation and intervention analysis
 - `Visualization.m` - Visualization scripts for plots, radar charts, and parameter-space analysis
 - `README.md` - Project documentation
-- `LICENSE` - MIT License
-
+- `Research report.pdf` - The research paper produced from this project
 ## Methodology
 
 The project consists of four methodological layers.
